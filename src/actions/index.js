@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { POSTS_URL } from '../constants/ApiConstants'
 import * as types from '../constants/ActionTypes'
-import { call } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 
 // export const loadPosts = () => dispatch => {
 //   axios.get(POSTS_URL).then(
@@ -23,5 +23,5 @@ export const fetchPostsRequest = () =>({
 
 export function* fetchPosts (){
     const posts = yield call(api, POSTS_URL)
-    console.log(posts);
+    yield put({type:types.FETCH_POSTS_SUCCESS,posts})
 }
