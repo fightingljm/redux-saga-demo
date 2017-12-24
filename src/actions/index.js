@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { POSTS_URL } from '../constants/ApiConstants'
 import * as types from '../constants/ActionTypes'
+import { call } from 'redux-saga/effects'
 
 // export const loadPosts = () => dispatch => {
 //   axios.get(POSTS_URL).then(
@@ -13,10 +14,14 @@ import * as types from '../constants/ActionTypes'
 //   )
 // }
 
+const api = url => axios.get(url)
+.then(e=>e.data)
+
 export const fetchPostsRequest = () =>({
     type: types.FETCH_POSTS_REQUEST
 })
 
-export const fetchPosts = () => {
-    console.log('fetchPosts...执行异步操作')
+export function* fetchPosts (){
+    const posts = yield call(api, POSTS_URL)
+    console.log(posts);
 }
