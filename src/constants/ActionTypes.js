@@ -1,1 +1,2 @@
 export const LOAD_POSTS = 'LOAD_POSTS'
+export const FETCH_POSTS_REQUEST = 'FETCH_POSTS_REQUEST'

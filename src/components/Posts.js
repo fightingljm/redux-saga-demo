@@ -3,10 +3,10 @@ import styled from 'styled-components'
 
 class Posts extends Component {
   render () {
-    const { loadPosts, posts } = this.props
+    const { fetchPostsRequest, posts } = this.props
     return (
       <Wrap>
-        <Button onClick={loadPosts}>
+        <Button onClick={fetchPostsRequest}>
           加载文章
         </Button>
         {
